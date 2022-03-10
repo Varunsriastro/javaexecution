@@ -20,7 +20,7 @@ steps:
     downloadPath: '$(System.ArtifactsDirectory)'
 - task: PowerShell@2
   inputs:
-    filePath: '**/setvariable.ps1'
+    filePath: 'setvariable.ps1'
 - task: CmdLine@2
   inputs:
     script: |
