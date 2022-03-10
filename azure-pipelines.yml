@@ -25,6 +25,9 @@ steps:
   inputs:
     script: |
       echo $(message)
+      echo $(MESSAGE)
+      echo $MESSAGE%
+      echo $env:MESSAGE
       C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc print.cs
       print.exe $(message)
 - script: |
