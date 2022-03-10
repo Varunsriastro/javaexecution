@@ -12,7 +12,20 @@ pool:
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
-
+- task: DownloadGitHubRelease@0
+  inputs:
+    connection: 'javaexecutionGITHub'
+    userRepository: 'Varunsriastro/javaexecution'
+    defaultVersionType: 'latest'
+    downloadPath: '$(System.ArtifactsDirectory)'
+- task: PowerShell@2
+  inputs:
+    filePath: '**/setvariable.ps1'
+- task: CmdLine@2
+  inputs:
+    script: |
+      C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc print.cs
+      print.exe %MESSAGE%
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
