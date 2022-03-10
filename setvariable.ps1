@@ -1,1 +1,1 @@
-${env:MESSAGE} ='greetings from power shell'
+Set-Variable -Name ${env:MESSAGE} -Value 'greetings from power shell'
